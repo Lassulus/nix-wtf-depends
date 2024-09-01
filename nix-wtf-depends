@@ -1,5 +1,6 @@
 #!/bin/sh
 # depends on jq fzf nix
+set -efux
 
 what_to_build=$1
 drv=$(nix build --dry-run --json "$what_to_build" | jq -r '.[].drvPath')
