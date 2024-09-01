@@ -1,0 +1,7 @@
+#!/bin/sh
+# depends on jq fzf nix
+
+what_to_build=$1
+drv=$(nix build --dry-run --json "$what_to_build" | jq -r '.[].drvPath')
+dep_to_inspect=$(nix-store --query --requisites "$drv" | fzf)
+nix why-depends "$drv" "$dep_to_inspect"
