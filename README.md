@@ -7,6 +7,12 @@ because I always forget how to use nix why-depends
 
 just run nix-wtf-depends on any output `nix build` would accept
 
+### with flakes
+
+```
+nix run github:lassulus/nix-wtf-depends -- $some_nix_build
+```
+
 ## example
 
 ```
